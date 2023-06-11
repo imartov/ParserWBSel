@@ -1,10 +1,9 @@
-FROM python
+FROM joyzoursky/python-chromedriver
 
-WORKDIR /usr/src/app
+WORKDIR /src
+COPY requirements.txt /src
+RUN pip install -r requirements.txt
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+COPY . /src
 
-COPY . .
-
-CMD [ "python", "getpage.py" ]
+CMD ["python", "getpage.py"]

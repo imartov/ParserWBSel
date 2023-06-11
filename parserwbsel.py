@@ -10,14 +10,16 @@ from utils import (checking_exist_path_and_create_if_not,
                    first_start,
                    DataFromInput)
 from trans import Trans
-from paths import DRIVER_CHROME_PATH, PATH_HTML_PAGES, FILE_DICT_FOR_SEARCH_ARTICLE
+# from paths import DRIVER_CHROME_PATH
+from paths import PATH_HTML_PAGES, FILE_DICT_FOR_SEARCH_ARTICLE
 
 
 @logger.catch()
 def get_data(cities:list, search_goods:list, count_pages=3, search_article:int=None) -> None:
 
     first_start()
-    driver = webdriver.Chrome(executable_path=DRIVER_CHROME_PATH)
+    # driver = webdriver.Chrome(executable_path=DRIVER_CHROME_PATH)
+    driver = webdriver.Chrome()
 
     sleep(0.5)
 

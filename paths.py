@@ -1,4 +1,4 @@
-DRIVER_CHROME_PATH = 'chromedriver\\chromedriver.exe'
+# DRIVER_CHROME_PATH = 'chromedriver\\chromedriver.exe'
 FILE_ALL_GOODS_JSON = 'data\\all_goods_list.json'
 PATH_HTML_PAGES = 'data\\html'
 RESULT_CSV = 'data\\result.csv'
