@@ -144,10 +144,10 @@ def get_data(cities:list, search_goods:list, count_pages=3, search_article:int=N
 def main():
     logger.add('debug.log', format='{time} {level} {message}', level='DEBUG', rotation='100 KB', compression='zip')
 
-    # get_data(cities=['Волгоград', 'Самара'],
-    #          search_goods=['Куртка', 'Джинсы'],
-    #          count_pages=2,
-    #          search_article=79774695)
+    get_data(cities=['Волгоград', 'Самара'],
+             search_goods=['Куртка', 'Джинсы'],
+             count_pages=2,
+             search_article=79774695)
 
     # data_input = DataFromInput().run_all_inputs()
     # get_data(cities=data_input['cities'],

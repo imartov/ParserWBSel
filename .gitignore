@@ -1,8 +1,11 @@
 /chromedriver
 /ParserSelWBVenv
 /__pycache__
+*__pycache__
+.__pycache__
+__pycache__
 *.~lock.test_task.docx#
 /data
 debug.log
-# *.exe
-# ParserWBSel.exe
+*.exe
+ParserWBSel.exe
