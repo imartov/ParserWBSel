@@ -4,7 +4,6 @@ from loguru import logger
 import os, json
 from utils import save_json_and_create_csv
 from trans import Trans
-from getpage import GetPage
 from convertnumber import ConvertNumber
 from paths import PATH_HTML_PAGES, FILE_ALL_GOODS_JSON
 

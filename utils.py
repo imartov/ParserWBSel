@@ -7,6 +7,7 @@ class DataFromInput:
     def __init__(self) -> None:
         self.input_data_dict = {}
         
+    # inputs function for working parserwbsel.py and getpage.py
     def input_data_for_list(self, query:str, example:str, key_dict:str) -> None:
         
         print(f'\nEnter a list of {query} separated by commas and spaces.\nFor example "{example}"\n')
@@ -29,7 +30,6 @@ class DataFromInput:
         query = 'cities'
         example = 'Moscow, Volgograd'
         key_dict = 'cities'
-
         self.input_data_for_list(query=query, example=example, key_dict=key_dict)
 
 
@@ -37,15 +37,6 @@ class DataFromInput:
         query = 'searched goods'
         example = 'Jeans, Jacket'
         key_dict = 'search_goods'
-
-        self.input_data_for_list(query, example, key_dict)
-
-
-    def input_page_number(self) -> None:
-        query = 'pages count for ever searched goods'
-        example = '3'
-        key_dict = 'count_pages'
-
         self.input_data_for_list(query, example, key_dict)
 
 
@@ -53,6 +44,48 @@ class DataFromInput:
         self.input_city()
         self.input_search_goods()
         self.input_page_number()
+
+        return self.input_data_dict
+    
+
+    # inputs function for working just parserwbsel.py
+    def input_data_list_for_get_page(self, query:str, example:str, key_dict:str) -> None:
+        
+        print(f'\nEnter {query}.\nFor example "{example}"\n')
+        input_data = input('Here: ')
+        if input_data == '':
+            input_data = None
+        else:
+            input_data = input_data.split(',')
+        self.input_data_dict[key_dict] = input_data
+
+
+    def input_search_product(self) -> None:
+        query = 'one product'
+        example = 'Jeans'
+        key_dict = 'search_goods'
+        self.input_data_list_for_get_page(query, example, key_dict)
+
+
+    def input_page_number(self) -> None:
+        query = 'pages count for parsing WB'
+        example = '3'
+        key_dict = 'count_pages'
+        self.input_data_list_for_get_page(query, example, key_dict)
+
+
+    def input_search_article(self) -> None:
+        query = 'one searched article'
+        example = 'click "Enter" for None or 654163158'
+        key_dict = 'search_article'
+        self.input_data_list_for_get_page(query, example, key_dict)
+
+
+    def run_all_inputs_for_get_page(self) -> dict:
+        self.input_city()
+        self.input_search_product()
+        self.input_page_number()
+        self.input_search_article()
 
         return self.input_data_dict
 
@@ -93,6 +126,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-# exe_app 0e08eac

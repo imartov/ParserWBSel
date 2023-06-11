@@ -152,7 +152,7 @@ def main():
     # data_input = DataFromInput().run_all_inputs()
     # get_data(cities=data_input['cities'],
     #          search_goods=data_input['search_goods'],
-    #          count_pages=int(data_input['count_pages'][0]))
+    #          count_pages=int(data_input['count_pages']))
     pass
 
 
