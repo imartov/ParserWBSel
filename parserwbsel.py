@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from time import sleep
 import random, json
@@ -19,7 +20,21 @@ def get_data(cities:list, search_goods:list, count_pages=3, search_article:int=N
 
     first_start()
     # driver = webdriver.Chrome(executable_path=DRIVER_CHROME_PATH)
-    driver = webdriver.Chrome()
+    
+    # options for Docker
+    options = Options()
+    options.add_argument('--no-sandbox')
+    options.add_argument('--headless')
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument('--start-maximized')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-gpu')
+    
+    # options.experimental_options["prefs"] = chrome_prefs
+    # chrome_prefs["profile.default_content_settings"] = {"images": 2}
+    # options.add_argument("--disable-setuid-sandbox")
+    
+    driver = webdriver.Chrome(options=options)
 
     sleep(0.5)
 
@@ -34,6 +49,7 @@ def get_data(cities:list, search_goods:list, count_pages=3, search_article:int=N
         dict_for_search_article = {}
     
     for city in cities:
+        print(f'Посик ПВЗ для {city}...')
     
         button_city = driver.find_element(By.XPATH, '/html/body/div[1]/header/div/div[1]/ul/li[2]/span')
         button_city.click()
@@ -63,12 +79,14 @@ def get_data(cities:list, search_goods:list, count_pages=3, search_article:int=N
 
         button_choise_pvz = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[2]/div[2]/div/div[3]/button')
         button_choise_pvz.click()
+        print(f'ПВЗ выбран.')
         sleep(2)
 
         if search_article:
             goods_dict = {}
         
         for goods in search_goods:
+            print(f'Скрапинг товара "{goods}"...')
 
             search_form = driver.find_element(By.XPATH, '//*[@id="searchInput"]')
             search_form.send_keys(Keys.CONTROL, "a")
@@ -118,10 +136,12 @@ def get_data(cities:list, search_goods:list, count_pages=3, search_article:int=N
                     page_dict[key_current_page_number] = current_page
                     
                 if page_number + 1 == count_pages:
+                    print(f'Поиск товара "{goods}" в городе {city} завершен.\n')
                     break
 
                 botton_next_page = driver.find_element(By.XPATH, "// a[contains(text(),\'Следующая страница')]")
                 botton_next_page.click()
+                print(f'Переход на страницу № {page_number + 2}\n')
 
                 sleep(2)
 
@@ -146,15 +166,15 @@ def get_data(cities:list, search_goods:list, count_pages=3, search_article:int=N
 def main():
     logger.add('debug.log', format='{time} {level} {message}', level='DEBUG', rotation='100 KB', compression='zip')
 
-    get_data(cities=['Волгоград', 'Самара'],
-             search_goods=['Куртка', 'Джинсы'],
-             count_pages=2,
-             search_article=79774695)
+    # get_data(cities=['Волгоград', 'Самара'],
+    #          search_goods=['Куртка', 'Джинсы'],
+    #          count_pages=2,
+    #          search_article=79774695)
 
     # data_input = DataFromInput().run_all_inputs()
     # get_data(cities=data_input['cities'],
     #          search_goods=data_input['search_goods'],
-    #          count_pages=int(data_input['count_pages']))
+    #          count_pages=int(data_input['count_pages'][0]))
     pass
 
 
