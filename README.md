@@ -71,7 +71,9 @@ This project is a parser for a popular online store <b>wildberies</b>.
     - formation of a catalog of goods for resale;
     - calculation of cost, terms of delivery, etc.
 - This project allowed:
-    - fully automate the execution of tasks such as searching and determining the SEO criteria for a product
+    - fully automate the execution of tasks such as searching and determining the SEO criteria for products;
+    - getting detailed information about the product, including the name, link, article number, quantity in stock and much more;
+    - execution of the program in the background (asynchronous) mode, which allows you to integrate it into your products without the risk of synchronous blocking.
 
 ## <a name='run'>Run</a>
 
