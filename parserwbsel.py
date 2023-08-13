@@ -49,7 +49,7 @@ def get_data(cities:list, search_goods:list, count_pages=3, search_article:int=N
         dict_for_search_article = {}
     
     for city in cities:
-        print(f'Посик ПВЗ для {city}...')
+        print(f'Посик ПВЗ для "{city}"...')
     
         button_city = driver.find_element(By.XPATH, '/html/body/div[1]/header/div/div[1]/ul/li[2]/span')
         button_city.click()
