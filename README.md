@@ -4,6 +4,7 @@
 [Get started](#get_started)  
 [Scripts](#scripts)  
 [.exe - temporarily unavailable](#exe_2)  
+[Description](#description)  
 [Run](#run)  
 [Script](#script)  
 [Input](#input)  
@@ -59,6 +60,18 @@ The project structure should look like this:
 ### <a name='exe_2'>.exe - temporarily unavailable</a>
 
 Install the executable file <b>[ParserSelWB.exe](https://github.com/imartov/ParserSelWB/blob/main/ParserSelWB.exe)</b> on your device and use it like a normal application.
+
+## <a name='description'>Description</a>
+
+This project is a parser for a popular online store <b>wildberies</b>.
+
+- The purpose of this project is:
+    - automation of procedures for searching for goods;
+    - monitoring the SEO criteria of the products;
+    - formation of a catalog of goods for resale;
+    - calculation of cost, terms of delivery, etc.
+- This project allowed:
+    - fully automate the execution of tasks such as searching and determining the SEO criteria for a product
 
 ## <a name='run'>Run</a>
 
